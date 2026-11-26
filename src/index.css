@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-hand: "Caveat", cursive;
+  --color-cream: #FFFBF5;
+  --color-baby-pink: #FFF0F5;
+  --color-soft-pink: #FFD6E0;
+  --color-blush: #F8A5C2;
+  --color-soft-yellow: #FFF3C4;
+  --color-butter: #FDE68A;
+  --color-sage: #D8E8D4;
+  --color-sage-deep: #6D8F68;
+  --color-cocoa: #4A352F;
+  --color-cocoa-light: #785A52;
+}
+
+@layer base {
+  body {
+    background-color: #FFFBF5;
+    color: #4A352F;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-hand {
+    font-family: var(--font-hand);
+  }
+}
+
+/* Subtle scrapbook paper texture */
+.paper-texture {
+  background-color: #FFFBF5;
+  background-image:
+    radial-gradient(rgba(74, 53, 47, 0.035) 1px, transparent 0),
+    radial-gradient(rgba(248, 165, 194, 0.06) 1px, transparent 0);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
+
+.paper-lined {
+  background-color: #FFFDF9;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 33px,
+    rgba(216, 190, 180, 0.25) 34px
+  );
+}
+
+/* Custom keyframe animations */
+@keyframes sway-gentle {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3.5deg);
+  }
+}
+
+@keyframes float-cloud {
+  0%, 100% {
+    transform: translateX(0px) translateY(0px);
+  }
+  50% {
+    transform: translateX(12px) translateY(-4px);
+  }
+}
+
+@keyframes bunny-blink {
+  0%, 92%, 100% {
+    transform: scaleY(1);
+  }
+  96% {
+    transform: scaleY(0.08);
+  }
+}
+
+@keyframes petal-fall {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  90% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(105vh) translateX(48px) rotate(320deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkle-twinkle {
+  0%, 100% {
+    transform: scale(0.4) rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.1) rotate(22deg);
+    opacity: 1;
+  }
+}
+
+@keyframes butterfly-flight {
+  0% {
+    transform: translate(0, 0) rotate(-6deg);
+  }
+  25% {
+    transform: translate(22px, -18px) rotate(5deg);
+  }
+  50% {
+    transform: translate(44px, -4px) rotate(-4deg);
+  }
+  75% {
+    transform: translate(18px, 14px) rotate(6deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(-6deg);
+  }
+}
+
+@keyframes wing-flap {
+  0%, 100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.45);
+  }
+}
+
+.animate-sway {
+  animation: sway-gentle 4.2s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.animate-sway-slow {
+  animation: sway-gentle 5.8s ease-in-out infinite reverse;
+  transform-origin: bottom center;
+}
+
+.animate-cloud {
+  animation: float-cloud 7s ease-in-out infinite;
+}
+
+.animate-blink {
+  animation: bunny-blink 4.2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.animate-petal {
+  animation: petal-fall linear infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle-twinkle 2.6s ease-in-out infinite;
+}
+
+.animate-butterfly {
+  animation: butterfly-flight 8s ease-in-out infinite;
+}
+
+.animate-wing {
+  animation: wing-flap 0.32s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-sway,
+  .animate-sway-slow,
+  .animate-cloud,
+  .animate-blink,
+  .animate-petal,
+  .animate-sparkle,
+  .animate-butterfly,
+  .animate-wing {
+    animation: none !important;
+  }
+}

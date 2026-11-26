@@ -1,0 +1,6 @@
+{
+  "name": "A Little Thank You for Being My Friend",
+  "description": "A cozy, whimsical digital friendship letter filled with bunnies, flowers, and silly memories.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
